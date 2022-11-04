@@ -1,9 +1,10 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Res } from '@nestjs/common';
+import { Response } from 'express';
 
 @Controller('user')
 export class UserController {
   @Get()
-  getAll() {
-    return 'Estos son todos los usuarios';
+  getAll(@Res() response: Response): void {
+    response.send("'Estos son todos los usuarios'");
   }
 }
