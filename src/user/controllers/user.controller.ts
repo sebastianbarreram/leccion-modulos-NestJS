@@ -1,6 +1,7 @@
-import { Controller, Get, Param, Res } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Res } from '@nestjs/common';
 import { Response } from 'express';
 import { Observable, of } from 'rxjs';
+import { CreateUsertDto } from '../dto/create-user.dto';
 
 @Controller('user')
 export class UserController {
@@ -20,5 +21,10 @@ export class UserController {
   @Get('observable')
   findAll2(): Observable<any[]> {
     return of([]);
+  }
+  @Post()
+  async create(@Body() createUserDto: CreateUsertDto) {
+    console.log(createUserDto);
+    return 'This action adds a new user';
   }
 }
