@@ -5,6 +5,6 @@ import { Response } from 'express';
 export class UserController {
   @Get()
   getAll(@Res() response: Response): void {
-    response.send("'Estos son todos los usuarios'");
+    response.status(200).send("'Estos son todos los usuarios'");
   }
 }
